@@ -1,0 +1,8 @@
+<form method="post">
+    {% for comment in comments %}
+    {% if comment.id == post %}
+        <div class="container";>
+            <p style="border: rgb(112, 112, 112); size: auto; word-wrap: normal;">{{ comment.author }}: {{ comment.response }}</p>
+        </div>
+    {% endif %}
+{% endfor %}

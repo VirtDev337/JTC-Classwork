@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .card{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: black !important;
+            border: none;
+            margin: 20px;
+            box-shadow: 0 10px 20px 0 rgba(0,0,0,0.8);
+        }
+        .container {
+            align-items: right;
+            padding-left: 20px;
+            size: 80px;
+            height: auto;
+            overflow: hidden;
+        }
+        .base {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            float: left;
+            overflow: hidden;
+        }
+        .blogRight {
+            position: relatvie;
+            width: 50%;
+            align-items: center;
+            float: right;
+        }
+        .blogLeft {
+            align-items: center;
+            float: left;
+        }
+        .blogcontainer{
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .tags{
+            margin-top: 80px;
+            margin-left: 0;
+            position: relative;
+        }
+        img{
+            padding-bottom: 20px;
+            margin-left: 50px;
+            size: 100%;
+            position: relative;
+        }
+        p{
+            left: 80px;
+            position: relative;
+            color: aqua;
+        }
+        h2{
+            position: relative;
+        }
+        textarea{
+            border: none;
+            resize: none;
+        }
+    </style>
+</head>
+    <body style="background-color: navy;">
+        <h1>My Blog</h1>
+
+        <a href="{% url 'create' %}">Create Post</a>
+        <section class="row">
+            {% for post in posts %}
+                <div class="card">
+                    <div class="base">
+                        <img class="" style="display: block; padding-top: 20px; align: center;" src="{{ post.img_link }}" height="200" />
+                        <div class="container">
+                            <div class="blogLeft">
+                                <a href="{% url 'edit' post.post_id %}">
+                                    <h2>{{ post.title | title }}</h2>
+                                </a>
+                                <div class="blogLeft">{{ post.body }}</div>
+                                <div class="tags">
+                                    {% for tag in post.tags.all %}
+                                    <span style="color: black; background-color: lightblue; margin-left: 4px">
+                                        {{ tag.name }}
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="blogRight"
+                            <div class="container">
+                                {% include "comment.html" %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>        
+    </body>
+</html>

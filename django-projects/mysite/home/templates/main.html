@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <center>
+        <h1>Welcome</h1>
+        <p>This is a landing page to access all of the challenges for Justice Through Code.  You can choose the app you want to access by clicking on the provided button for each app.</p>
+
+        <form action="{% url 'hello' %}">
+            <input type="submit" value="Hello" />
+        </form>
+        <form action="{% url 'sandwich' %}">
+            <input type="submit" value="Sandwich" />
+        </form>
+        <form action="{% url 'todo' %}">
+            <input type="submit" value="Todo" />
+        </form>
+        <form action="{% url 'notes' %}">
+            <input type="submit" value="Notes" />
+        </form>
+        <form action="{% url 'practice' %}">
+            <input type="submit" value="Practice" />
+        </form>
+        <form action="{% url 'polls' %}">
+            <input type="submit" value="Polls" />
+        </form>
+        <form action="{% url 'tip' %}">
+            <input type="submit" value="Tip Calculator" />
+        </form>
+    </center>
+</body>
+</html>
