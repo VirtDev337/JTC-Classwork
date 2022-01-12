@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'practice.apps.PracticeConfig',
     'todo.apps.TodoConfig',
     'notes.apps.NotesConfig',
-    'polls.apps.PollsConfig',
-    'tipcalc.apps.TipcalcConfig',
     'home.apps.HomeConfig',
 ]
 
